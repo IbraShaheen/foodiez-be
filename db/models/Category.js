@@ -1,4 +1,5 @@
 const SequelizeSlugify = require("sequelize-slugify");
+
 module.exports = (sequelize, DataTypes) => {
   const Category = sequelize.define("Category", {
 
@@ -15,14 +16,5 @@ module.exports = (sequelize, DataTypes) => {
   SequelizeSlugify.slugifyModel(Category, {
     source: ["name"],
   });
-//   Category.associate = (models) => {
-//     models.Shop.hasMany(Category, {
-//       foreignKey: "shopId",
-//       allowNull: false,
-//       as: "categories",
-//     });
-
-//     Category.belongsTo(models.Shop, {
-//       foreignKey: "shopId",
-//     });
+ return Category;
   };

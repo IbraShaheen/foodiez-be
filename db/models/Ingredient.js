@@ -16,14 +16,16 @@ module.exports = (sequelize, DataTypes) => {
     source: ["name"],
   });
     Ingredient.associate = (models) => {
-      models.Shop.hasMany(Ingredient, {
+      models.Category.hasMany(Ingredient, {
         foreignKey: "categoryId",
-        allowNull: false,
         as: "ingredients",
+        allowNull: false,
       });
 
-      Ingredient.belongsTo(models.Shop, {
-        foreignKey: "shopId",
+      Ingredient.belongsTo(models.Category, {
+        foreignKey: "categoryId",
       });
+      
 };
+return Ingredient
 }
